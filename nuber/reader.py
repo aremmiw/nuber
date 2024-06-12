@@ -86,6 +86,8 @@ class Reader:
                 ord("h"): self.action_previous_chapter,
                 ord("j"): self.action_scroll_down,
                 ord("k"): self.action_scroll_up,
+                ord("f"): self.action_page_up,
+                ord("v"): self.action_page_down,
                 ord("l"): self.action_next_chapter,
                 ord("q"): self.action_quit,
                 ord("G"): self.action_bottom,
@@ -227,6 +229,14 @@ class Reader:
             self.action_scroll_down(canvas, step=-step)
         else:
             self.action_scroll_up(canvas, step=step)
+
+    def action_page_up(self, canvas: ueberzug.Canvas) -> None:
+        height = curses.LINES
+        self.action_scroll_up(canvas, height)
+
+    def action_page_down(self, canvas: ueberzug.Canvas) -> None:
+        height = curses.LINES
+        self.action_scroll_down(canvas, height)
 
     def action_jump_to_highlight(self, canvas: ueberzug.Canvas) -> None:
         (current_row, _), _ = self.highlights[self.highlights_index]

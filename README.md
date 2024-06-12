@@ -53,6 +53,8 @@ Options:
 [reader_keybinds]
 j = "scroll_down"
 k = "scroll_up"
+f = "page_up"
+v = "page_down"
 g = "top"
 G = "bottom"
 l = "next_chapter"
